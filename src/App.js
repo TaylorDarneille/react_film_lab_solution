@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import FilmListing from './FilmListing.js';
 import FilmDetails from './FilmDetails.js';
-import TMDB from './TMBD';
+import TMDB from './TMDB';
 
 class App extends Component {
   render() {
