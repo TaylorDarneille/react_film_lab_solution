@@ -32,9 +32,10 @@ class FilmListing extends Component {
 	render() {
 	 /*const filmsToDisplay = this.state.filter==="all" ? this.props.films : this.props.faves*/
 	 const filmsToDisplay = this.state.filter==="all" ? this.props.films : this.state.faves
-	 const allFilms = filmsToDisplay.map(film => {
+	 const allFilms = filmsToDisplay.map( (film, i) => {
 	 	return (
 		 		<FilmRow 
+		 			key={i} 
 		 			film={film} 
 		 			// isFave={this.props.faves.includes(film)}
 		 			isFave={this.state.faves.includes(film)}  
