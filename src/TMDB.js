@@ -1,5 +1,9 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 const TMDB = {
-  api_key: '<REPLACE_THIS_WITH_TMDB_API_KEY>',
+  api_key: process.env.REACT_APP_TMDB_API_KEY,
+  api_read_access_token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5MTk1OGExYjk1N2JhMjQyMTQ5OTA2OThkOGZjZDM3NyIsInN1YiI6IjViOTk4YzI3OTI1MTQxMGIzMzAwMTQwNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Q1xabW8FVNi7tX4EGIeJO7uwWeBHJDyZS_N9ml9n3kE',
   films: [
     {
       "id": 346364,

@@ -11,37 +11,42 @@ class App extends Component {
     super()
     this.state = {
       films: TMDB.films,
-      faves: [],
+      // faves: [],
       current: {}
     }
   }
 
   handleDetailsClick = (film) => {
     console.log("Fetching details for", film.title);
-    this.setState({current: film});
+    const url = `https://api.themoviedb.org/3/movie/${film.id}?api_key=${TMDB.api_key}&append_to_response=videos,images&language=en`
+    fetch(url).then(response => {
+      response.json().then(data => {
+        this.setState({current: data});
+      })
+    })
   }
 
-  handleFaveToggle = (film) => {
-    const newFaves = this.state.faves.slice();
-    const filmIndex = this.state.faves.indexOf(film);
-    console.log("filmIndex", filmIndex);
-    if(filmIndex<0) {
-      console.log(`Adding ${film.title} to faves...`);
-      newFaves.push(film);
-    } else {
-      newFaves.splice(filmIndex, 1);
-      console.log(`Removing ${film.title} from faves...`);
-    }
-    this.setState({faves: newFaves});
-  }
+  // handleFaveToggle = (film) => {
+  //   const newFaves = this.state.faves.slice();
+  //   const filmIndex = this.state.faves.indexOf(film);
+  //   console.log("filmIndex", filmIndex);
+  //   if(filmIndex<0) {
+  //     console.log(`Adding ${film.title} to faves...`);
+  //     newFaves.push(film);
+  //   } else {
+  //     newFaves.splice(filmIndex, 1);
+  //     console.log(`Removing ${film.title} from faves...`);
+  //   }
+  //   this.setState({faves: newFaves});
+  // }
 
   render() {
     return (
       <div className="film-library">
         <FilmListing 
           films={this.state.films} 
-          faves={this.state.faves} 
-          onFaveToggle={this.handleFaveToggle} 
+          // faves={this.state.faves} 
+          // onFaveToggle={this.handleFaveToggle} 
           handleDetailsClick={this.handleDetailsClick}
         />
         <FilmDetails film={this.state.current}/>
