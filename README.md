@@ -2,10 +2,11 @@
 
 ## Running this:
 
-This project was created with `create-react-app`. Once you have the app cloned, you should run `npm install`. You can then run it with `npm run start`.
+This project was created with `create-react-app`. Once you have the app cloned:
 
-### What is this?
-
-This is a repo that houses the base code for a React.js film application. By the final stage of the project, the film app will have a list of all the recent popular movies; a user can scroll through them, click one for more details, and save it to their favorites.
+0. Obtain and API key from [TMDB](https://www.themoviedb.org/?language=en-US)
+1. Create a `.env.local` file in the root directory that contains `REACT_APP_TMDB_API_KEY='<your api key here>'`
+2. Run `npm install`
+3. Run `npm start`.
 
 ![](bladerunner.png)
